@@ -1,0 +1,731 @@
+
+tc_login_01#登录界面失败的用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:check_exsit, link_text,注销
+
+tc_login_02#登录界面成功
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:check_exsit, link_text,注销
+
+tc_login_03#登录界面失败用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin123
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:check_exsit, link_text,注销
+
+tc_login_04#登录界面失败的用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:check_exsit, link_text,注销
+
+tc_login_05#登录界面失败的用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:check_exsit, link_text,注销
+
+tc_outofgoods_01#商品出库条码扫描成功
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:clear,xpath,//*[@id="barcode"]
+    s7:send,xpath,//*[@id="barcode"],6955203661302
+    s8:click,xpath,/html/body/div[4]/div[1]/div/div[1]/form/button
+    s9:check_exsit,link_text,移除
+
+tc_outofgoods_02#商品出库多条码扫描成功
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:clear,xpath,//*[@id="barcode"]
+    s7:send,xpath,//*[@id="barcode"],6955203661302
+    s8:click,xpath,/html/body/div[4]/div[1]/div/div[1]/form/button
+    s9:send,xpath,//*[@id="barcode"],6955203661302
+    s10:click,xpath,/html/body/div[4]/div[1]/div/div[1]/form/button
+    s11:check_exsit,link_text,移除
+
+tc_outofgoods_03#商品出库不同多条码扫描成功
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:clear,xpath,//*[@id="barcode"]
+    s7:send,xpath,//*[@id="barcode"],6955203661302
+    s8:click,xpath,/html/body/div[4]/div[1]/div/div[1]/form/button
+    s9:send,xpath,//*[@id="barcode"],6955203660060
+    s10:click,xpath,/html/body/div[4]/div[1]/div/div[1]/form/button
+    s11:check_exsit,link_text,移除
+
+tc_outofgoods_04#商品出库空条码扫描失败
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:clear,xpath,//*[@id="barcode"]
+    s7:send,xpath,//*[@id="barcode"],
+    s8:click,xpath,/html/body/div[4]/div[1]/div/div[1]/form/button
+    s9:click,css_selector,button.btn-primary:nth-child(1)
+    s10:check_exsit,link_text,移除
+
+tc_outofgoods_05#商品出库错误条码扫描失败
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:clear,xpath,//*[@id="barcode"]
+    s7:send,xpath,//*[@id="barcode"],87654321
+    s8:click,css_selector,button.btn-primary:nth-child(1)
+    s9:click,xpath,/html/body/div[4]/div[1]/div/div[1]/form/button
+    s10:check_exsit,link_text,移除
+
+
+tc_outofgoods_06#商品出库清除商品成功
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:clear,xpath,//*[@id="barcode"]
+    s7:send,xpath,//*[@id="barcode"],6955203661302
+    s8:click,xpath,/html/body/div[4]/div[1]/div/div[1]/form/button
+    s9:send,xpath,//*[@id="barcode"],6955203660060
+    s10:click,xpath,/html/body/div[4]/div[1]/div/div[1]/form/button
+    s11:click,xpath,/html/body/div[4]/div[1]/div/div[2]/a[2]
+    s12:check_text,css_selector,#totalbuycount,0
+
+tc_outofgoods_07#商品出库移除功能成功
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:clear,xpath,//*[@id="barcode"]
+    s7:send,xpath,//*[@id="barcode"],6955203661302
+    s8:click,xpath,/html/body/div[4]/div[1]/div/div[1]/form/button
+    s10:click,link_text,移除
+
+tc_outofgoods_08#商品出库会员查询自动添加会员失败用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:clear,xpath,//*[@id="customerphone"]
+    s7:send,xpath,//*[@id="customerphone"],18682558655
+    s8:click,xpath,/html/body/div[4]/div[4]/div[1]/form/div[2]/button
+    s9:clear,xpath,//*[@id="oldcredit"]
+    s10:send,xpath,//*[@id="oldcredit"],20
+
+tc_outofgoods_09#商品出库会员查询自动添加会员成功用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:clear,xpath,//*[@id="customerphone"]
+    s7:send,xpath,//*[@id="customerphone"],19999999999
+    s8:click,xpath,/html/body/div[4]/div[4]/div[1]/form/div[2]/button
+    s9:clear,xpath,//*[@id="oldcredit"]
+    s10:send,xpath,//*[@id="oldcredit"],20
+
+tc_outofgoods_09#商品出库收款方式更改成功用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:select,id,paymethod,2
+
+tc_outofgoods_10#商品出库收款方式更改失败用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:select,id,paymethod,5
+
+tc_outofgoods_11#商品出库添加新商品按钮成功用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:click,xpath,/html/body/div[4]/div[1]/div/div[2]/a[1]
+    s7:check_text,xpath,/html/body/div[4]/div[1]/form[1]/div[1]/span,请认真检查商品基本信息，确保正确！
+
+
+tc_put_ingoods_1#商品入库成功用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,xpath,/html/body/div[2]/div/div[2]/ul[1]/li[3]/a
+    s8:select,css_selector,#batchname,1
+    s9:clear, xpath,//*[@id="goodsserial"]
+    s9:send, xpath,//*[@id="goodsserial"],M8Q9066C
+    s10:clear,xpath,//*[@id="barcode"]
+    s10:send,xpath,//*[@id="barcode"],6955203636348
+    s10:clear,xpath,//*[@id="inputsize"]
+    s10:send,xpath,//*[@id="inputsize"],80-90-100-110-120
+    s11:clear,xpath,//*[@id="quantity"]
+    s11:send,xpath,//*[@id="quantity"],5
+    s12:select,css_selector,#goodstype,0
+    s13:click,css_selector,input.btn-primary
+    s14:alert
+
+tc_put_ingoods_2#商品入库失败用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,xpath,/html/body/div[2]/div/div[2]/ul[1]/li[3]/a
+    s8:select,css_selector,#batchname,1
+    s9:clear, xpath,//*[@id="goodsserial"]
+    s9:send, xpath,//*[@id="goodsserial"],M8Q9066C
+    s10:clear,xpath,//*[@id="barcode"]
+    s10:send,xpath,//*[@id="barcode"],6955203636348
+    s10:clear,xpath,//*[@id="inputsize"]
+    s10:send,xpath,//*[@id="inputsize"],80-90-100-110-120
+    s11:clear,xpath,//*[@id="quantity"]
+    s11:send,xpath,//*[@id="quantity"],3
+    s12:select,css_selector,#goodstype,0
+    s13:click,css_selector,input.btn-primary
+    s14:alert
+
+
+tc_put_ingoods_3#商品入库失败用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,xpath,/html/body/div[2]/div/div[2]/ul[1]/li[3]/a
+    s8:select,css_selector,#batchname,0
+    s9:clear, xpath,//*[@id="goodsserial"]
+    s9:send, xpath,//*[@id="goodsserial"],M8Q9066C
+    s10:clear,xpath,//*[@id="barcode"]
+    s10:send,xpath,//*[@id="barcode"],6955203636348
+    s10:clear,xpath,//*[@id="inputsize"]
+    s10:send,xpath,//*[@id="inputsize"],80-90-100-110-120
+    s11:clear,xpath,//*[@id="quantity"]
+    s11:send,xpath,//*[@id="quantity"],5
+    s12:select,css_selector,#goodstype,0
+    s13:click,css_selector,input.btn-primary
+    s14:alert
+
+
+tc_put_ingoods_4#商品入库失败用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,xpath,/html/body/div[2]/div/div[2]/ul[1]/li[3]/a
+    s8:select,css_selector,#batchname,1
+    s9:clear, xpath,//*[@id="goodsserial"]
+    s9:send, xpath,//*[@id="goodsserial"],M8Q9066C
+    s10:clear,xpath,//*[@id="barcode"]
+    s10:send,xpath,//*[@id="barcode"],6955203636348
+    s10:clear,xpath,//*[@id="inputsize"]
+    s10:send,xpath,//*[@id="inputsize"],80-90-100-110-120
+    s11:clear,xpath,//*[@id="quantity"]
+    s11:send,xpath,//*[@id="quantity"],5
+    s12:select,css_selector,#goodstype,3
+    s13:click,css_selector,input.btn-primary
+    s14:alert
+
+
+tc_put_ingoods_5#商品入库失败用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,xpath,/html/body/div[2]/div/div[2]/ul[1]/li[3]/a
+    s8:select,css_selector,#batchname,1
+    s9:clear, xpath,//*[@id="goodsserial"]
+    s9:send, xpath,//*[@id="goodsserial"],M2S2437D
+    s10:clear,xpath,//*[@id="barcode"]
+    s10:send,xpath,//*[@id="barcode"],6955203636348
+    s10:clear,xpath,//*[@id="inputsize"]
+    s10:send,xpath,//*[@id="inputsize"],80-90-100-110-120
+    s11:clear,xpath,//*[@id="quantity"]
+    s11:send,xpath,//*[@id="quantity"],5
+    s12:select,css_selector,#goodstype,0
+    s13:click,css_selector,input.btn-primary
+    s14:alert
+
+
+tc_put_ingoods_6#商品入库失败用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,xpath,/html/body/div[2]/div/div[2]/ul[1]/li[3]/a
+    s8:select,css_selector,#batchname,1
+    s9:clear, xpath,//*[@id="goodsserial"]
+    s9:send, xpath,//*[@id="goodsserial"],M8Q9066C
+    s10:clear,xpath,//*[@id="barcode"]
+    s10:send,xpath,//*[@id="barcode"],6955203630759
+    s10:clear,xpath,//*[@id="inputsize"]
+    s10:send,xpath,//*[@id="inputsize"],80-90-100-110-120
+    s11:clear,xpath,//*[@id="quantity"]
+    s11:send,xpath,//*[@id="quantity"],5
+    s12:select,css_selector,#goodstype,0
+    s13:click,css_selector,input.btn-primary
+    s14:alert
+
+
+tc_manage_1#批次管理失败用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,css_selector,ul.nav:nth-child(1) > li:nth-child(2) > a:nth-child(1)
+    s8:clear,xpath,//*[@id="batchname"]
+    s9:send,xpath,//*[@id="batchname"],GB20191214
+    s10:send,xpath,//*[@id="batchfile"],DA.xlsx
+    s11:click,/html/body/div[4]/div[1]/form[2]/div/input[1]
+    s12:click,link_text,注销
+
+
+tc_manage_2#批次管理失败用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,css_selector,ul.nav:nth-child(1) > li:nth-child(2) > a:nth-child(1)
+    s8:clear,xpath,//*[@id="batchname"]
+    s9:send,xpath,//*[@id="batchname"],
+    s10:send,xpath,//*[@id="batchfile"],DA.xlsx
+    s11:click,/html/body/div[4]/div[1]/form[2]/div/input[1]
+    s12:click,link_text,注销
+
+
+tc_manage_3#批次管理失败用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,css_selector,ul.nav:nth-child(1) > li:nth-child(2) > a:nth-child(1)
+    s8:clear,xpath,//*[@id="batchname"]
+    s9:send,xpath,//*[@id="batchname"],GB20191214
+    s10:send,xpath,//*[@id="batchfile"],
+    s11:click,/html/body/div[4]/div[1]/form[2]/div/input[1]
+    s12:click,link_text,注销
+
+
+tc_goods_manage_4#批次管理批号查询成功用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,css_selector,ul.nav:nth-child(1) > li:nth-child(2) > a:nth-child(1)
+    s8:select,css_selector,#batchnamelist,0
+    s9:click,xpath,/html/body/div[4]/div[1]/form[2]/div/input[2]
+    s10:check_text,xpath,/html/body/div[4]/div[2]/div[2],修改
+
+tc_customer_manage_5#批次管理批号查询成功用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,css_selector,ul.nav:nth-child(1) > li:nth-child(2) > a:nth-child(1)
+    s8:select,css_selector,#batchnamelist,1
+    s9:click,xpath,/html/body/div[4]/div[1]/form[2]/div/input[2]
+    s10:check_text,xpath,/html/body/div[4]/div[2]/div[2],修改
+
+tc_customer_manage_1#会员管理查询成功用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,css_selector,ul.nav:nth-child(1) > li:nth-child(5) > a:nth-child(1)
+    s8:clear,xpath,//*[@id="customerphone"]
+    s9:send,xpath,//*[@id="customerphone"],186836668866
+    s10:clear,xpath,//*[@id="customername"]
+    s10:send,xpath,//*[@id="customername"],某某
+    s12:select,css_selector,#childsex,0
+    s13:clear,xpath,//*[@id="creditkids"]
+    s14:clear,xpath,//*[@id="creditkids"]
+    s14:send,xpath,//*[@id="creditkids"],500
+    s15:clear,xpath,//*[@id="creditcloth"]
+    s15:send,xpath,//*[@id="creditcloth"],2136
+    s16:click,css_selector,button.form-control:nth-child(3)
+    s17:check_text,xpath,/html/body/div[4]/div[2],修改
+
+
+
+    tc_customer_manage_2#会员管理查询失败用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,css_selector,ul.nav:nth-child(1) > li:nth-child(5) > a:nth-child(1)
+    s8:clear,xpath,//*[@id="customerphone"]
+    s9:send,xpath,//*[@id="customerphone"],13345552222
+    s10:clear,xpath,//*[@id="customername"]
+    s10:send,xpath,//*[@id="customername"],某某
+    s12:select,css_selector,#childsex,0
+    s13:clear,xpath,//*[@id="creditkids"]
+    s14:clear,xpath,//*[@id="creditkids"]
+    s14:send,xpath,//*[@id="creditkids"],500
+    s15:clear,xpath,//*[@id="creditcloth"]
+    s15:send,xpath,//*[@id="creditcloth"],2136
+    s16:click,css_selector,button.form-control:nth-child(3)
+    s17:check_text,xpath,/html/body/div[4]/div[2],修改
+
+tc_customer_manage_3#会员管理查失败用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,css_selector,ul.nav:nth-child(1) > li:nth-child(5) > a:nth-child(1)
+    s8:clear,xpath,//*[@id="customerphone"]
+    s9:send,xpath,//*[@id="customerphone"],186836668866
+    s10:clear,xpath,//*[@id="customername"]
+    s10:send,xpath,//*[@id="customername"],ccc
+    s12:select,css_selector,#childsex,0
+    s13:clear,xpath,//*[@id="creditkids"]
+    s14:clear,xpath,//*[@id="creditkids"]
+    s14:send,xpath,//*[@id="creditkids"],500
+    s15:clear,xpath,//*[@id="creditcloth"]
+    s15:send,xpath,//*[@id="creditcloth"],2136
+    s16:click,css_selector,button.form-control:nth-child(3)
+    s17:check_text,xpath,/html/body/div[4]/div[2],修改
+
+tc_customer_manage_4#会员管理查询失败用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,css_selector,ul.nav:nth-child(1) > li:nth-child(5) > a:nth-child(1)
+    s8:clear,xpath,//*[@id="customerphone"]
+    s9:send,xpath,//*[@id="customerphone"],186836668866
+    s10:clear,xpath,//*[@id="customername"]
+    s10:send,xpath,//*[@id="customername"],某某
+    s12:select,css_selector,#childsex,1
+    s13:clear,xpath,//*[@id="creditkids"]
+    s14:send,xpath,//*[@id="creditkids"],500
+    s15:clear,xpath,//*[@id="creditcloth"]
+    s15:send,xpath,//*[@id="creditcloth"],2136
+    s16:click,css_selector,button.form-control:nth-child(3)
+    s17:check_text,xpath,/html/body/div[4]/div[2],修改
+
+
+    tc_customer_manage_5#会员管理查询失败用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,css_selector,ul.nav:nth-child(1) > li:nth-child(5) > a:nth-child(1)
+    s8:clear,xpath,//*[@id="customerphone"]
+    s9:send,xpath,//*[@id="customerphone"],186836668866
+    s10:clear,xpath,//*[@id="customername"]
+    s10:send,xpath,//*[@id="customername"],某某
+    s12:select,css_selector,#childsex,0
+    s13:clear,xpath,//*[@id="creditkids"]
+    s14:clear,xpath,//*[@id="creditkids"]
+    s14:send,xpath,//*[@id="creditkids"],100
+    s15:clear,xpath,//*[@id="creditcloth"]
+    s15:send,xpath,//*[@id="creditcloth"],2136
+    s16:click,css_selector,button.form-control:nth-child(3)
+    s17:check_text,xpath,/html/body/div[4]/div[2],修改
+
+tc_customer_manage_6#会员管理查询失败用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,css_selector,ul.nav:nth-child(1) > li:nth-child(5) > a:nth-child(1)
+    s8:clear,xpath,//*[@id="customerphone"]
+    s9:send,xpath,//*[@id="customerphone"],186836668866
+    s10:clear,xpath,//*[@id="customername"]
+    s10:send,xpath,//*[@id="customername"],某某
+    s12:select,css_selector,#childsex,0
+    s13:clear,xpath,//*[@id="creditkids"]
+    s14:clear,xpath,//*[@id="creditkids"]
+    s14:send,xpath,//*[@id="creditkids"],500
+    s15:clear,xpath,//*[@id="creditcloth"]
+    s15:send,xpath,//*[@id="creditcloth"],100
+    s16:click,css_selector,button.form-control:nth-child(3)
+    s17:check_text,xpath,/html/body/div[4]/div[2],修改
+
+
+tc_customer_manage_7#会员管理查询成功用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,css_selector,ul.nav:nth-child(1) > li:nth-child(5) > a:nth-child(1)
+    s8:clear,xpath,//*[@id="customerphone"]
+    s9:send,xpath,//*[@id="customerphone"],186836668866
+    s10:clear,xpath,//*[@id="customername"]
+    s10:send,xpath,//*[@id="customername"],
+    s12:select,css_selector,#childsex,0
+    s13:clear,xpath,//*[@id="creditkids"]
+    s14:clear,xpath,//*[@id="creditkids"]
+    s14:send,xpath,//*[@id="creditkids"],
+    s15:clear,xpath,//*[@id="creditcloth"]
+    s15:send,xpath,//*[@id="creditcloth"],
+    s16:click,css_selector,button.form-control:nth-child(3)
+    s17:check_text,xpath,/html/body/div[4]/div[2],修改
+
+
+    tc_customer_manage_1#会员管理会员添加成功用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,css_selector,ul.nav:nth-child(1) > li:nth-child(5) > a:nth-child(1)
+    s8:clear,xpath,//*[@id="customerphone"]
+    s9:send,xpath,//*[@id="customerphone"],18122222
+    s10:clear,xpath,//*[@id="customername"]
+    s10:send,xpath,//*[@id="customername"],某某
+    s12:select,css_selector,#childsex,0
+    s13:clear,xpath,//*[@id="creditkids"]
+    s14:clear,xpath,//*[@id="creditkids"]
+    s14:send,xpath,//*[@id="creditkids"],500
+    s15:clear,xpath,//*[@id="creditcloth"]
+    s15:send,xpath,//*[@id="creditcloth"],2136
+    s16:click,css_selector,button.form-control:nth-child(1)
+    s17:click,css_selector,ul.nav:nth-child(1) > li:nth-child(5) > a:nth-child(1)
+    s18:clear,xpath,//*[@id="customerphone"]
+    s19:send,xpath,//*[@id="customerphone"],18122222
+    s20:clear,xpath,//*[@id="customername"]
+    s21:send,xpath,//*[@id="customername"],某某
+    s22:select,css_selector,#childsex,0
+    s23:clear,xpath,//*[@id="creditkids"]
+    s24:clear,xpath,//*[@id="creditkids"]
+    s24:send,xpath,//*[@id="creditkids"],500
+    s25:clear,xpath,//*[@id="creditcloth"]
+    s25:send,xpath,//*[@id="creditcloth"],2136
+    s26:click,css_selector,button.form-control:nth-child(3)
+    s27:check_text,xpath,/html/body/div[4]/div[2],修改
+
+
+
+    tc_customer_manage_1#会员管理会员添加失败用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,css_selector,ul.nav:nth-child(1) > li:nth-child(5) > a:nth-child(1)
+    s8:clear,xpath,//*[@id="customerphone"]
+    s9:send,xpath,//*[@id="customerphone"],18122222
+    s10:clear,xpath,//*[@id="customername"]
+    s10:send,xpath,//*[@id="customername"],某某
+    s12:select,css_selector,#childsex,0
+    s13:clear,xpath,//*[@id="creditkids"]
+    s14:clear,xpath,//*[@id="creditkids"]
+    s14:send,xpath,//*[@id="creditkids"],500
+    s15:clear,xpath,//*[@id="creditcloth"]
+    s15:send,xpath,//*[@id="creditcloth"],2136
+    s16:click,css_selector,button.form-control:nth-child(1)
+    s17:click,css_selector,ul.nav:nth-child(1) > li:nth-child(5) > a:nth-child(1)
+    s18:clear,xpath,//*[@id="customerphone"]
+    s19:send,xpath,//*[@id="customerphone"],18122222
+    s20:clear,xpath,//*[@id="customername"]
+    s21:send,xpath,//*[@id="customername"],某某
+    s22:select,css_selector,#childsex,0
+    s23:clear,xpath,//*[@id="creditkids"]
+    s24:clear,xpath,//*[@id="creditkids"]
+    s24:send,xpath,//*[@id="creditkids"],500
+    s25:clear,xpath,//*[@id="creditcloth"]
+    s25:send,xpath,//*[@id="creditcloth"],2136
+    s26:click,css_selector,button.form-control:nth-child(3)
+    s27:check_text,xpath,/html/body/div[4]/div[2],修改
+
+
+    tc_goods_manage_1#会员管理修改成功用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,css_selector,ul.nav:nth-child(1) > li:nth-child(5) > a:nth-child(1)
+    s8:clear,xpath,//*[@id="customerphone"]
+    s9:send,xpath,//*[@id="customerphone"],186836668866
+    s10:clear,xpath,//*[@id="customername"]
+    s10:send,xpath,//*[@id="customername"],某某
+    s12:select,css_selector,#childsex,0
+    s13:clear,xpath,//*[@id="creditkids"]
+    s14:clear,xpath,//*[@id="creditkids"]
+    s14:send,xpath,//*[@id="creditkids"],100
+    s15:clear,xpath,//*[@id="creditcloth"]
+    s15:send,xpath,//*[@id="creditcloth"],100
+    s16:click,css_selector,button.form-control:nth-child(3)
+    s17:click,link_text,修改
+    s18:clear,xpath,//*[@id="creditkids"]
+    s19:clear,xpath,//*[@id="creditkids"]
+    s20:send,xpath,//*[@id="creditkids"],500
+    s21:clear,xpath,//*[@id="creditcloth"]
+    s22:send,xpath,//*[@id="creditcloth"],2136
+    s23:click,css_selector,#editBtn
+    s24:click,css_selector,.modal-sm > div:nth-child(1) > div:nth-child(3) > button:nth-child(1)
+    s25:clear,xpath,//*[@id="customerphone"]
+    s26:send,xpath,//*[@id="customerphone"],186836668866
+    s27:click,css_selector,button.form-control:nth-child(3)
+    s28:check_text,xpath,/html/body/div[4]/div[2],修改
+
+
+
+tc_goods_check_1#库存查询未入库成功用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,css_selector,ul.nav:nth-child(1) > li:nth-child(4) > a:nth-child(1)
+    s8:click,css_selector,input.form-control:nth-child(2)
+    s9:check_text,css_selector,div.row:nth-child(2),修改
+
+tc_goods_check_2#库存查询零库存成功用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s7:click,css_selector,ul.nav:nth-child(1) > li:nth-child(4) > a:nth-child(1)
+    s8:click,css_selector,input.btn-primary:nth-child(1)
+    s9:check_text,css_selector,div.row:nth-child(2),修改
+
+tb_jiiyibi_01#记账支出模块记录成功用例
+    s1:click,text,一笔记账
+    s2:click,text,记一笔
+    s3:click,text,娱乐
+    s4:click,text,5
+    s5:click,text,+
+    s6:click,text,4
+    s7:click,text,=
+    s8:click,text,完成
+    s9:check,text,-9
+
+tb_jiiyibi_02#记账支出模块记录成功用例
+    s1:click,text,一笔记账
+    s2:click,text,记一笔
+    s3:click,text,娱乐
+    s4:click,text,9
+    s4:click,text,9
+    s5:click,text,-
+    s6:click,text,4
+    s7:click,text,=
+    s8:click,text,完成
+    s9:check,text,-9
+
+tb_jiiyibi_03#记账支出模块记录成功用例
+    s1:click,text,一笔记账
+    s2:click,text,记一笔
+    s3:click,text,交通
+    s4:click,text,9
+    s4:click,text,9
+    s5:click,text,-
+    s6:click,text,4
+    s7:click,text,=
+    s8:click,text,完成
+    s9:check,text,-9
+
+tb_jiiyibi_04#记账收入模块记录成功用例
+    s1:click,text,一笔记账
+    s2:click,text,记一笔
+    s2:click,text,收入
+    s3:click,text,工资
+    s4:click,text,9
+    s4:click,text,9
+    s5:click,text,-
+    s6:click,text,4
+    s7:click,text,=
+    s8:click,text,完成
+    s9:check,text,-9
+
+tb_jiiyibi_04#记账收入模块记录成功用例
+    s1:click,text,一笔记账
+    s2:click,text,记一笔
+    s2:click,text,收入
+    s3:click,text,工资
+    s4:click,text,9
+    s4:click,text,-
+    s5:click,text,9
+    s6:click,text,4
+    s7:click,text,=
+    s8:click,text,完成
+    s9:check,text,85

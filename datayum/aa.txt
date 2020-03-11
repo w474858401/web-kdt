@@ -1,0 +1,50 @@
+
+tc_login_05#登录界面失败的用例
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:check_exsit, link_text,注销
+
+tc_outofgoods_01#商品出库条码扫描成功
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:clear,xpath,//*[@id="barcode"]
+    s7:send,xpath,//*[@id="barcode"],6955203661302
+    s8:click,xpath,/html/body/div[4]/div[1]/div/div[1]/form/button
+    s9:check_exsit,link_text,移除
+
+tc_outofgoods_02#商品出库多条码扫描成功
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:clear,xpath,//*[@id="barcode"]
+    s7:send,xpath,//*[@id="barcode"],6955203661302
+    s8:click,xpath,/html/body/div[4]/div[1]/div/div[1]/form/button
+    s9:send,xpath,//*[@id="barcode"],6955203661302
+    s10:click,xpath,/html/body/div[4]/div[1]/div/div[1]/form/button
+    s11:check_exsit,link_text,移除
+
+tc_outofgoods_03#商品出库不同多条码扫描成功
+    s1:open,http://localhost:8080/WoniuSales-20180508-V1.4-bin/
+    #下面的操作方式是，在id=username的元素上输入admin
+    s2:send, id,username,admin
+    s3:send ,id,password,Milor123
+    s4:send, id ,verifycode,0000
+    s5:click, class_name, form-control.btn-primary
+    s6:clear,xpath,//*[@id="barcode"]
+    s7:send,xpath,//*[@id="barcode"],6955203661302
+    s8:click,xpath,/html/body/div[4]/div[1]/div/div[1]/form/button
+    s9:send,xpath,//*[@id="barcode"],6955203660060
+    s10:click,xpath,/html/body/div[4]/div[1]/div/div[1]/form/button
+    s11:check_exsit,link_text,移除
+
